@@ -1,0 +1,13 @@
+create laravel app
+database in the .env
+name of the app .env
+make:auth
+make:model Course -m (with migration)
+change migration to set course data
+migrate
+make:factory CourseFactory --model=Course
+write code for Factory
+make Seeder
+write seeder file
+make controller
+change routes
