@@ -1,6 +1,8 @@
 <?php
 
 Route::get('courses', 'CoursesController@index');
+//Route::get('courses/{course}', 'CoursesController@show');
+
 
 Route::get('factory', function(){
     return App\Course::all();

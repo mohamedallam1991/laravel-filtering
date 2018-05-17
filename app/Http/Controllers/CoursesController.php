@@ -7,9 +7,14 @@ use App\Course;
 
 class CoursesController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return Course::get();
+        return Course::filter($request)->get();
+    }
+    
+    public function show(Course $course)
+    {
+        return $course;
     }
     
     
