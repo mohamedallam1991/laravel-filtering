@@ -9,13 +9,18 @@ class CoursesController extends Controller
 {
     public function index(Request $request)
     {
-        return Course::filter($request)->get();
+        return Course::filter($request, $this->getFilters())->get();
     }
     
-    public function show(Course $course)
-    {
-        return $course;
-    }
+   protected function getFilters()
+   {
+       return [
+           //'difficulty' => DifficultyFilter::class,
+       
+       ];
+   }
+   
+    
     
     
 

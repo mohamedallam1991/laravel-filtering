@@ -24,6 +24,13 @@ abstract class FiltersAbstract
         return $builder;
     }
 
+    public function add(array $filters)
+    {
+        return $this->filters = array_merge($this->filters, $filters);
+    }
+    
+    
+
     protected function resolveFilter($filter)
     {
         return new $this->filters[$filter];
@@ -36,7 +43,7 @@ abstract class FiltersAbstract
 
     protected function filterFilters($filters)
     {
-        return $this->request->only(array_keys($this->filters));
+        return array_filter($this->request->only(array_keys($this->filters)));
     }
     
 
