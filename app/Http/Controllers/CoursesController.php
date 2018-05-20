@@ -9,18 +9,9 @@ class CoursesController extends Controller
 {
     public function index(Request $request)
     {
-        return Course::with(['subjects'])->filter($request, $this->getFilters())->get();
-    }
-    
-   protected function getFilters()
-   {
-       return [
-           //'difficulty' => DifficultyFilter::class,
-       
-       ];
-   }
-   
-    
+        $courses = Course::with(['subjects'])->filter($request)->get();
+        return view('courses.index' , compact($courses));
+    }   
     
     
 
