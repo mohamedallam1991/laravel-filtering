@@ -2,7 +2,16 @@
 
 namespace App\Filters\Course;
 
-class DifficultyFilter
+use App\Filters\FilterAbstract;
+use Illuminate\Database\Eloquent\Builder;
+
+class DifficultyFilter extends FilterAbstract
 {
+    public function filter(Builder $builder, $value)
+    {
+        return $builder;
+    }
+    
+    
 
 }
