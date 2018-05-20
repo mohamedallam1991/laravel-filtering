@@ -5,14 +5,14 @@ namespace App\Filters\Course;
 use App\Filters\FilterAbstract;
 use Illuminate\Database\Eloquent\Builder;
 
-class DifficultyFilter extends FilterAbstract
+class TypeFilter extends FilterAbstract
 {
     public function mappings()
     {
         return [
-            'begginer' => 'beginner',
-            'intermediate' => 'intermediate',
-            'advanced' => 'advanced',
+            'theory' => 'theory',
+            'snippet' => 'snippet',
+            'project' => 'project',
         ];
     }
     
@@ -21,13 +21,10 @@ class DifficultyFilter extends FilterAbstract
     {
         $value = $this->resolveFilterValue($value);
      
-        if($value === null)  {
+        if ($value === null) {
             return $builder;
         }
      
-        return $builder->where('difficulty', $value);
+        return $builder->where('type', $value);
     }
-    
-    
-
 }

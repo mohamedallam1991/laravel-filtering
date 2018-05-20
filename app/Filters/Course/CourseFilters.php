@@ -7,15 +7,13 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Filters\FiltersAbstract;
 use App\Filters\Course\AccessFilter;
 use App\Filters\Course\DifficultyFilter;
+use App\Filters\Course\TypeFilter;
 
 class CourseFilters extends FiltersAbstract
 {
     protected $filters = [
-        'access' => AccessFilter::class, 
+        'access' => AccessFilter::class,
         'difficulty' => DifficultyFilter::class,
+        'type' => TypeFilter::class,
     ];
-    
-    
-
-
 }
