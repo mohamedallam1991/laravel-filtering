@@ -8,6 +8,7 @@ use App\Filters\FiltersAbstract;
 use App\Filters\Course\AccessFilter;
 use App\Filters\Course\DifficultyFilter;
 use App\Filters\Course\TypeFilter;
+use App\Filters\Course\SubjectFilter;
 
 class CourseFilters extends FiltersAbstract
 {
@@ -15,5 +16,6 @@ class CourseFilters extends FiltersAbstract
         'access' => AccessFilter::class,
         'difficulty' => DifficultyFilter::class,
         'type' => TypeFilter::class,
+        'subject' => SubjectFilter::class,
     ];
 }
