@@ -10,7 +10,7 @@ class SubjectFilter extends FilterAbstract
 
     public function mappings()
     {
-        $sub = \App\Subject::all()->pluck('slug')->toArray();
+        $sub = \App\Subject::orderBy('name' , 'asc')->pluck('slug')->toArray();
         return array_combine($sub, $sub);
     }
     // we need mapings to make sure user will not type something randomly
