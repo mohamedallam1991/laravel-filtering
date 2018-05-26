@@ -36,5 +36,25 @@ class Course extends Model
    {
        return $this->belongsToMany(User::class);
    }
-   
+
+   public function getDifficultyAttribute($value)
+    {
+        return ucfirst($value);
+    }
+
+    public function getTypeAttribute($value)
+    {
+        return ucfirst($value);
+    }
+
+    public function getFreeAttribute($value)
+    {
+        return $value == true ? 'Free' : 'Premium';
+    }
+
+    public function getFormatedStartedAttribute()
+    {
+        return $this->started == true ? 'Started' : 'Not Started';
+    }
+
 }
