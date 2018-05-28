@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\DB;
 
-Route::get('courses', 'CoursesController@index');
+Route::get('courses', 'CoursesController@index')->name('courses.index');
 //Route::get('courses/{course}', 'CoursesController@show');
 
 
