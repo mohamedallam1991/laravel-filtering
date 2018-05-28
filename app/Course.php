@@ -11,6 +11,7 @@ use App\User;
 
 class Course extends Model
 {
+    public $with = ['subjects', 'users'];
     public $appends = [ 'started' ];
     public $hidden = [ 'users' ];
 
