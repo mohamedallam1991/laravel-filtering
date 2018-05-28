@@ -1,3 +1,8 @@
+<p class="list-group">
+    <a href="{{ route('courses.index') }}">Clear All</a>
+</p>
+
+
 @include('courses.partials._filter_list',[
     'map' => ['free' => 'Free', 'premium' => 'Premium'],
     'key' => 'access'
