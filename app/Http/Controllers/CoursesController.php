@@ -9,7 +9,7 @@ class CoursesController extends Controller
 {
     public function index(Request $request)
     {
-        $courses = Course::filter($request)->get();
+        $courses = Course::filter($request)->paginate(2);
         return view('courses.index' , compact('courses'));
     }   
     
