@@ -12,7 +12,8 @@ class SubjectFilter extends FilterAbstract
     {
         //$sub = \App\Subject::orderBy('name' , 'asc')->pluck('slug')->toArray();
         //return array_combine($sub, $sub);
-        return \App\Subject::get()->pluck('name','slug');
+        //return \App\Subject::get()->pluck('name','slug');
+        return \App\Filters\Course\CourseFilters::mappings()['subjects'];
     }
   
     public function filter(Builder $builder, $value)

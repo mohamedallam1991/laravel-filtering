@@ -5,12 +5,14 @@ namespace App\Filters\Course;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filters\FiltersAbstract;
-use App\Filters\Course\AccessFilter;
-use App\Filters\Course\DifficultyFilter;
-use App\Filters\Course\TypeFilter;
-use App\Filters\Course\SubjectFilter;
-use App\Filters\Course\StartedFilter;
-use App\Filters\Course\OrderFilter;
+use App\Filters\Course\{ 
+    AccessFilter, 
+    DifficultyFilter,
+    StartedFilter,
+    SubjectFilter,
+    TypeFilter,
+    OrderFilter,
+ };
 
 class CourseFilters extends FiltersAbstract
 {
@@ -22,4 +24,36 @@ class CourseFilters extends FiltersAbstract
         'started' => StartedFilter::class,
         'order' => OrderFilter::class,
     ];
+
+    public static function mappings()
+    {
+        $map = [
+            'access' => [
+                'free' => 'Free',
+                'premium' => 'Premium',
+            ],
+            'difficulty' => [
+                'beginner' => 'Beginner',
+                'intermediate' => 'Intermediate',
+                'advanced' => 'Advanced',
+            ],
+            'type' => [
+                'snippet' => 'Snippet',
+                'project' => 'Project',
+                'theory' => 'Theory',
+            ],
+            'subjects' => \App\Subject::get()->pluck('name', 'slug')->toArray()
+        ];
+
+        if (auth()->check()) {
+            $map = array_merge($map, [
+                'started' => [
+                    'true' => 'Started',
+                    'false' => 'Not started',
+                ]
+            ]);
+        }
+
+        return $map;
+    }
 }

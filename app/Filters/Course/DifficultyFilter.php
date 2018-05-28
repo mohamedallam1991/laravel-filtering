@@ -9,11 +9,7 @@ class DifficultyFilter extends FilterAbstract
 {
     public function mappings()
     {
-        return [
-            'begginer' => 'beginner',
-            'intermediate' => 'intermediate',
-            'advanced' => 'advanced',
-        ];
+        return \App\Filters\Course\CourseFilters::mappings()['difficulty'];
     }
     
     

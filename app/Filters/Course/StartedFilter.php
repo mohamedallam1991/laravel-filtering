@@ -9,10 +9,7 @@ class StartedFilter extends FilterAbstract
 {
     public function mappings()
     {
-        return [
-            'false' => false,
-            'true' => true,
-        ];
+        return \App\Filters\Course\CourseFilters::mappings()['started'];
     }
     
     
