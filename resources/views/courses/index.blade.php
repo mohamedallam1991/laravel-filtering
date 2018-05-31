@@ -10,10 +10,10 @@
         <div class="col-md-9">
             <div class="card-header">Courses</div>
             <div class="card-body">
-                @if($courses->count())
+                @if($courses)
                     @each('courses.partials._course', $courses, 'course');
                     {{ $courses->appends(request()->query())->links() }}
-                @else
+                @else 
                     No courses
                 @endif
             </div>
