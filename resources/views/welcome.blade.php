@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                <a href="/courses">Click me to check courses</a>
                 </div>
 
                 <div class="links">
